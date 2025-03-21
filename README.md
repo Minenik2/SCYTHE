@@ -1,6 +1,7 @@
 # SCYTHE
  
 This is a game made in godot for the piratesoftware16 gamejam where the theme was "You are the weapon"
+If you wish to try out the game you can find it here: https://minenik.itch.io/scythe
 
 ## Concept
 ### Gameplay overview
