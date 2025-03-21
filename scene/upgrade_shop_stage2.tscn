@@ -1,0 +1,150 @@
+[gd_scene load_steps=13 format=3 uid="uid://c1t5o5qic5rga"]
+
+[ext_resource type="Script" path="res://scene/upgrade_shop_stage_2.gd" id="1_hmmri"]
+[ext_resource type="Texture2D" uid="uid://bfddw2yslfdcf" path="res://img_misc/panelcontainer.png" id="1_xm6tt"]
+[ext_resource type="StyleBox" uid="uid://ca3h58dvds0ie" path="res://style.tres" id="2_7u2kt"]
+[ext_resource type="Texture2D" uid="uid://c5gi03vxfv2fh" path="res://img_upgradeIcons/wavemaster.png" id="2_87ib6"]
+[ext_resource type="Texture2D" uid="uid://cpycjb3hnv7oa" path="res://img_upgradeIcons/soulhunter.png" id="3_651fy"]
+[ext_resource type="Texture2D" uid="uid://28ordtdonqcu" path="res://img_misc/Illustration727vtran.png" id="3_nxftv"]
+[ext_resource type="Texture2D" uid="uid://bxp84lcqp31ke" path="res://img_misc/castle.jpg" id="4_n2qk7"]
+[ext_resource type="AudioStream" uid="uid://cjqlk5ewhigj3" path="res://sfx/money.ogg" id="5_fc3su"]
+[ext_resource type="AudioStream" uid="uid://eow2k4k8rjgc" path="res://sfx/woodknock.ogg" id="6_2wnkw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4bolw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbirr"]
+texture = ExtResource("1_xm6tt")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+modulate_color = Color(0.252028, 0.252028, 0.252028, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_88hko"]
+texture = ExtResource("1_xm6tt")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+modulate_color = Color(0.986847, 0.956177, 0.963063, 1)
+
+[node name="upgrade_shop_stage2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hmmri")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.709804, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "UPGRADE SHOP"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="wavemaster" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Wavemaster"
+icon = ExtResource("2_87ib6")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="soulhunter" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "SoulxHunter"
+icon = ExtResource("3_651fy")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="description" type="Label" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Choose Upgrade"
+horizontal_alignment = 1
+
+[node name="descriptionCost" type="Label" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+horizontal_alignment = 1
+
+[node name="descriptionPlayer" type="Label" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+horizontal_alignment = 1
+
+[node name="back" type="Button" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4bolw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wbirr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_88hko")
+theme_override_styles/normal = ExtResource("2_7u2kt")
+text = "Back"
+
+[node name="Illustration727Vtran" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(219, 112)
+scale = Vector2(0.0473236, 0.0473236)
+texture = ExtResource("3_nxftv")
+
+[node name="Castle" type="Sprite2D" parent="."]
+z_index = -7
+position = Vector2(158, 117)
+scale = Vector2(0.4975, 0.4975)
+texture = ExtResource("4_n2qk7")
+
+[node name="buy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fc3su")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="unableBuy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2wnkw")
+volume_db = -20.0
+pitch_scale = 0.25
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/GridContainer/wavemaster" to="." method="_on_wavemaster_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/wavemaster" to="." method="_on_wavemaster_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/GridContainer/soulhunter" to="." method="_on_soulhunter_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/soulhunter" to="." method="_on_soulhunter_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/back" to="." method="_on_back_pressed"]

@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://b170xoe6tfnwg"]
+
+[ext_resource type="Script" path="res://scene/main_menu.gd" id="1_l1vd5"]
+[ext_resource type="Texture2D" uid="uid://bfddw2yslfdcf" path="res://img_misc/panelcontainer.png" id="1_xjxkv"]
+[ext_resource type="Texture2D" uid="uid://28ordtdonqcu" path="res://img_misc/Illustration727vtran.png" id="2_bmjse"]
+[ext_resource type="Texture2D" uid="uid://bxp84lcqp31ke" path="res://img_misc/castle.jpg" id="3_a7pq4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s7te4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_el8ba"]
+texture = ExtResource("1_xjxkv")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+modulate_color = Color(0.252028, 0.252028, 0.252028, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pyt6j"]
+texture = ExtResource("1_xjxkv")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+modulate_color = Color(0.986847, 0.956177, 0.963063, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_knhwj"]
+texture = ExtResource("1_xjxkv")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l1vd5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -61.5
+offset_right = 62.0
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.709804, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "< < SCYTHE > >"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s7te4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_el8ba")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pyt6j")
+theme_override_styles/normal = SubResource("StyleBoxTexture_knhwj")
+text = "Start Run"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s7te4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_el8ba")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pyt6j")
+theme_override_styles/normal = SubResource("StyleBoxTexture_knhwj")
+text = "Upgrades"
+
+[node name="Illustration727Vtran" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(219, 112)
+scale = Vector2(0.0473236, 0.0473236)
+texture = ExtResource("2_bmjse")
+
+[node name="Castle" type="Sprite2D" parent="."]
+z_index = -7
+position = Vector2(158, 117)
+scale = Vector2(0.4975, 0.4975)
+texture = ExtResource("3_a7pq4")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_upgrade_pressed"]

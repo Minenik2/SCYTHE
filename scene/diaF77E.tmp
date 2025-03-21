@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://4mfi8i0f0uj"]
+
+[ext_resource type="Script" path="res://scene/dialogue.gd" id="1_afkjx"]
+[ext_resource type="Texture2D" uid="uid://bfddw2yslfdcf" path="res://img_misc/panelcontainer.png" id="1_l5vgd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p3tft"]
+texture = ExtResource("1_l5vgd")
+texture_margin_left = 25.0
+texture_margin_top = 15.0
+texture_margin_right = 25.0
+texture_margin_bottom = 15.0
+
+[node name="TextBox" type="CanvasLayer"]
+script = ExtResource("1_afkjx")
+
+[node name="textboxContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -77.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="textboxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_p3tft")
+
+[node name="MarginContainer" type="MarginContainer" parent="textboxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="textboxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="textboxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="textboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "*"
+
+[node name="Label" type="Label" parent="textboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Placeholder text the quick brown fox "
+autowrap_mode = 2
+clip_text = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="End" type="Label" parent="textboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+size_flags_vertical = 8
+text = "V"

@@ -1,0 +1,47 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c2ahiyac1sbt7"]
+
+[ext_resource type="FontFile" uid="uid://d22tpxinmhb64" path="res://font/cute-mono/retro-pixel-cute-mono.ttf" id="1_f4j88"]
+[ext_resource type="Texture2D" uid="uid://bfddw2yslfdcf" path="res://img_misc/panelcontainer.png" id="2_p2ck8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0d5ke"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lre86"]
+texture = ExtResource("2_p2ck8")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+modulate_color = Color(0.2484, 0.2484, 0.2484, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0lyu1"]
+texture = ExtResource("2_p2ck8")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ceipp"]
+texture = ExtResource("2_p2ck8")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+modulate_color = Color(0.881937, 0.881937, 0.881937, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2gdei"]
+texture = ExtResource("2_p2ck8")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+
+[resource]
+Button/font_sizes/font_size = 11
+Button/fonts/font = ExtResource("1_f4j88")
+Button/styles/focus = SubResource("StyleBoxEmpty_0d5ke")
+Button/styles/hover = SubResource("StyleBoxTexture_lre86")
+Button/styles/normal = SubResource("StyleBoxTexture_0lyu1")
+Button/styles/pressed = SubResource("StyleBoxTexture_ceipp")
+Label/font_sizes/font_size = 11
+Label/fonts/font = ExtResource("1_f4j88")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_2gdei")

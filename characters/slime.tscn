@@ -1,0 +1,103 @@
+[gd_scene load_steps=14 format=3 uid="uid://tj7t0cj3bnfh"]
+
+[ext_resource type="Texture2D" uid="uid://din3jyeq0ppo1" path="res://img_misc/enemy-Sheet.png" id="1_c1q0s"]
+[ext_resource type="Script" path="res://characters/slime.gd" id="1_umydc"]
+[ext_resource type="Texture2D" uid="uid://d2j18hmud2se6" path="res://img_misc/enemyslimedestroyed.png" id="3_cwc7g"]
+[ext_resource type="AudioStream" uid="uid://eow2k4k8rjgc" path="res://sfx/woodknock.ogg" id="4_5t247"]
+[ext_resource type="AudioStream" uid="uid://dtfd3mpmfkli5" path="res://sfx/hit.ogg" id="5_gp5qv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i7l8"]
+atlas = ExtResource("1_c1q0s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6led"]
+atlas = ExtResource("1_c1q0s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xngr"]
+atlas = ExtResource("3_cwc7g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqtec"]
+atlas = ExtResource("3_cwc7g")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap77c"]
+atlas = ExtResource("3_cwc7g")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfmk6"]
+atlas = ExtResource("3_cwc7g")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uaqb6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i7l8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6led")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xngr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqtec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap77c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfmk6")
+}],
+"loop": false,
+"name": &"destroyed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb3rl"]
+size = Vector2(18, 13)
+
+[node name="slime" type="CharacterBody2D"]
+texture_filter = 1
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_umydc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(4.76837e-07, -12)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_uaqb6")
+animation = &"destroyed"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_sb3rl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_sb3rl")
+
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5t247")
+volume_db = -10.0
+pitch_scale = 2.0
+bus = &"SlimeHit"
+
+[node name="ligthhit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gp5qv")
+volume_db = -5.0
+bus = &"SlimeHit"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

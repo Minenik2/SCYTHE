@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://babks6qg6cwwy"]
+
+[ext_resource type="Script" path="res://game_manager.gd" id="1_fdfya"]
+[ext_resource type="AudioStream" uid="uid://bn1gn52aeh6h3" path="res://sfx/death.ogg" id="2_qtmns"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_fdfya")
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qtmns")
+volume_db = 10.0
+pitch_scale = 2.21

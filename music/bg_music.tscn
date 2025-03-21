@@ -1,0 +1,17 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbyq2k3hjxsjy"]
+
+[ext_resource type="Script" path="res://music/bg_music.gd" id="1_coqel"]
+[ext_resource type="AudioStream" uid="uid://cxx2ojdufgv2b" path="res://music/birthdaysong.ogg" id="2_u2l0v"]
+[ext_resource type="AudioStream" uid="uid://pwqvbcdm0sks" path="res://music/differentmix.ogg" id="3_ofedt"]
+[ext_resource type="AudioStream" uid="uid://b8ae1qyep7x11" path="res://music/escape.ogg" id="4_5xhy7"]
+[ext_resource type="AudioStream" uid="uid://bg7amx6nx2vat" path="res://music/notbroken.ogg" id="5_rgdkl"]
+[ext_resource type="AudioStream" uid="uid://cwhf1pkpvvobu" path="res://music/shadowsofmypast.ogg" id="6_5nn8y"]
+[ext_resource type="AudioStream" uid="uid://bqi2gnu36cw66" path="res://music/test778.ogg" id="7_u82i6"]
+
+[node name="AudioPlayer" type="AudioStreamPlayer" node_paths=PackedStringArray("music_player")]
+process_mode = 3
+volume_db = -20.0
+bus = &"Music"
+script = ExtResource("1_coqel")
+music_player = NodePath(".")
+songs = Array[AudioStream]([ExtResource("2_u2l0v"), ExtResource("3_ofedt"), ExtResource("4_5xhy7"), ExtResource("5_rgdkl"), ExtResource("6_5nn8y"), ExtResource("7_u82i6")])

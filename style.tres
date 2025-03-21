@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://ca3h58dvds0ie"]
+
+[ext_resource type="Texture2D" uid="uid://bfddw2yslfdcf" path="res://img_misc/panelcontainer.png" id="1_egn45"]
+
+[resource]
+texture = ExtResource("1_egn45")
+expand_margin_left = 10.0
+expand_margin_top = 2.0
+expand_margin_right = 10.0
+expand_margin_bottom = 2.0
+modulate_color = Color(0.248517, 0.07505, 0.073847, 1)
